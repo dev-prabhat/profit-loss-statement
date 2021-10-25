@@ -5,16 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <label for="cost-price">Cost Price</label>
-    <input type="number" id="cost-price" />
-    <label for="stocks">Stocks</label>
-    <input type="number" id="stocks" />
-    <label for="selling-price">Selling Price</label>
-    <input type="number" id="selling-price" />
+    <h1>Stocks Profit & Loss Calculator</h1>
+    <div class="input">
+      <label for="cost-price">Initial Price:</label>
+      <input type="number" id="cost-price" required />
+    </div>
+    <div class="input">
+      <label for="stocks">Quantity of Stocks:</label>
+      <input type="number" id="stocks" required />
+    </div>
+    <div class="input">
+      <label for="selling-price">Current Price:</label>
+      <input type="number" id="selling-price" required />
+    </div>
     <button id="profit-or-loss">Tell Me</button>
-    <h2 id="statement"></h2>
+    <h3 id="statement"></h3>
+    <footer>
+      <a
+        href="https://twitter.com/prabhat_singh97"
+        target="_blank"
+        class="fa fa-twitter"
+        style="font-size: 30px"
+      ></a>
+      <a
+        href="https://www.linkedin.com/in/prabhat-singh-93a54b1b6/"
+        target="_blank"
+        class="fa fa-linkedin"
+        style="font-size: 30px"
+      ></a>
+      <a
+        href="https://github.com/dev-prabhat"
+        target="_blank"
+        class="fa fa-github"
+        style="font-size: 30px"
+      ></a>
+    </footer>
     <script src="app.js" type="text/javascript"></script>
   </body>
 </html>

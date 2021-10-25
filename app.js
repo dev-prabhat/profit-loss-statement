@@ -5,7 +5,7 @@ var profitOrLoss = document.querySelector("#profit-or-loss")
 var Statement = document.querySelector("#statement")
 
 function checkForProfitOrLoss() {
-    var costPriceTotal, sellingPriceTotal;
+    var costPriceTotal, sellingPriceTotal; //TODO - Corner Case like when CP , SP and Stocks are null or not entered
     costPriceTotal = calculatePrice(costPrice.value, Stocks.value);
     sellingPriceTotal = calculatePrice(sellingPrice.value, Stocks.value);
 
@@ -13,7 +13,8 @@ function checkForProfitOrLoss() {
         var ProfitPercent = percentage(costPriceTotal, sellingPriceTotal)
         var Profit = sellingPriceTotal - costPriceTotal
         Statement.innerText = `Hii , Profit is ${Profit} Rupees and ${ProfitPercent}% percent`
-    } else {
+    }
+    else {
         var LossPercent = percentage(costPriceTotal, sellingPriceTotal)
         var Loss = costPriceTotal - sellingPriceTotal
         Statement.innerText = `Hii , Loss is ${Loss} Rupees and ${LossPercent}% percent`
