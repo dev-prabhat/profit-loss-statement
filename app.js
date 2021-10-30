@@ -5,19 +5,24 @@ var profitOrLoss = document.querySelector("#profit-or-loss")
 var Statement = document.querySelector("#statement")
 
 function checkForProfitOrLoss() {
-    var costPriceTotal, sellingPriceTotal; //TODO - Corner Case like when CP , SP and Stocks are null or not entered
+    var costPriceTotal, sellingPriceTotal;
     costPriceTotal = calculatePrice(costPrice.value, Stocks.value);
     sellingPriceTotal = calculatePrice(sellingPrice.value, Stocks.value);
 
-    if (sellingPriceTotal >= costPriceTotal) {
-        var ProfitPercent = percentage(costPriceTotal, sellingPriceTotal)
-        var Profit = sellingPriceTotal - costPriceTotal
-        Statement.innerText = `Hii , Profit is ${Profit} Rupees and ${ProfitPercent}% percent`
+    if (sellingPriceTotal !== 0 && costPriceTotal !== 0 && Stocks.value !== 0) {
+        if (sellingPriceTotal >= costPriceTotal) {
+            var ProfitPercent = percentage(costPriceTotal, sellingPriceTotal)
+            var Profit = sellingPriceTotal - costPriceTotal
+            Statement.innerText = `Hii , Profit is ${Profit} Rupees and ${ProfitPercent}% percent`
+        }
+        else {
+            var LossPercent = percentage(costPriceTotal, sellingPriceTotal)
+            var Loss = costPriceTotal - sellingPriceTotal
+            Statement.innerText = `Hii , Loss is ${Loss} Rupees and ${LossPercent}% percent`
+        }
     }
     else {
-        var LossPercent = percentage(costPriceTotal, sellingPriceTotal)
-        var Loss = costPriceTotal - sellingPriceTotal
-        Statement.innerText = `Hii , Loss is ${Loss} Rupees and ${LossPercent}% percent`
+        Statement.innerText = "Enter Valid amount and stocks value"
     }
 }
 
@@ -25,16 +30,18 @@ function calculatePrice(Price, stocks) {
     return Price * stocks
 }
 
+
 function percentage(CP, SP) {
     var Profit = SP - CP;
     var Loss = CP - SP
-    if (SP > CP) {
-        return (Profit / SP) * 100;
+    var percent = 0
+    if (Profit > Loss) {
+        percent = (Profit / CP) * 100;
     }
     else {
-        return (Loss / CP) * 100;
+        percent = (Loss / CP) * 100;
     }
-
+    return percent.toFixed(2);
 }
 
 
