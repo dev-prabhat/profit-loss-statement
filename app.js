@@ -1,10 +1,10 @@
-var costPrice = document.querySelector("#cost-price")
-var Stocks = document.querySelector("#stocks")
-var sellingPrice = document.querySelector("#selling-price")
-var profitOrLoss = document.querySelector("#profit-or-loss")
-var Statement = document.querySelector("#statement")
+const costPrice = document.querySelector("#cost-price")
+const Stocks = document.querySelector("#stocks")
+const sellingPrice = document.querySelector("#selling-price")
+const profitOrLoss = document.querySelector("#profit-or-loss")
+const Statement = document.querySelector("#statement")
 
-function checkForProfitOrLoss() {
+const checkForProfitOrLoss = () => {
     var costPriceTotal, sellingPriceTotal;
     costPriceTotal = calculatePrice(costPrice.value, Stocks.value);
     sellingPriceTotal = calculatePrice(sellingPrice.value, Stocks.value);
@@ -26,12 +26,10 @@ function checkForProfitOrLoss() {
     }
 }
 
-function calculatePrice(Price, stocks) {
-    return Price * stocks
-}
+const calculatePrice = (Price, stocks) => Price * stocks
 
 
-function percentage(CP, SP) {
+const percentage = (CP, SP) => {
     var Profit = SP - CP;
     var Loss = CP - SP
     var percent = 0
